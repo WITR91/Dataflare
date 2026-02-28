@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#8B5CF6" />
+    <meta name="description" content="DataFlare — Buy MTN, Airtel, Glo and 9mobile data instantly." />
+
+    <!-- PWA / iOS home-screen support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="DataFlare" />
+
+    <!-- Open Graph (for WhatsApp referral link previews) -->
+    <meta property="og:title" content="DataFlare — Buy Data Instantly" />
+    <meta property="og:description" content="The fastest way to buy mobile data in Nigeria." />
+    <meta property="og:type" content="website" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- Google Fonts — Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>DataFlare</title>
+  </head>
+  <body class="bg-dark text-white">
+    <noscript>You need JavaScript enabled to run DataFlare.</noscript>
+    <div id="root"></div>
+
+    <!-- Register service worker for PWA -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then(() => console.log('[DataFlare] Service Worker registered'))
+            .catch((err) => console.error('[DataFlare] SW registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

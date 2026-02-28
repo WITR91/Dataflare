@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ─────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent; /* remove tap flash on mobile */
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0A14;
+    color: #F1F0FF;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none; /* prevent pull-to-refresh interfering with app */
+  }
+
+  /* iOS safe area padding for bottom nav */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ── Reusable component classes ──────────────────────────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-brand text-white font-semibold py-3 px-6 rounded-2xl
+           active:scale-95 transition-all duration-150 shadow-brand
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-light border border-dark-border text-white font-semibold
+           py-3 px-6 rounded-2xl active:scale-95 transition-all duration-150;
+  }
+
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-2xl p-4 shadow-card;
+  }
+
+  .input {
+    @apply w-full bg-dark-light border border-dark-border text-white rounded-xl
+           px-4 py-3 outline-none focus:border-primary transition-colors
+           placeholder-gray-500 text-sm;
+  }
+
+  .badge-success { @apply bg-green-500/20 text-green-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+  .badge-pending { @apply bg-yellow-500/20 text-yellow-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+  .badge-failed  { @apply bg-red-500/20 text-red-400 text-xs font-medium px-2 py-0.5 rounded-full; }
+}
+
+/* ── Scrollbar styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2A2A40; border-radius: 4px; }
+
+/* ── Glass effect ────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(19, 19, 31, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Particle animation for landing page ─────────────────────────────────── */
+@keyframes floatParticle {
+  0%   { transform: translateY(0) scale(1);   opacity: 0.6; }
+  50%  { transform: translateY(-40px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+}
+
+.particle {
+  animation: floatParticle linear infinite;
+}
+
+/* ── Page transition ─────────────────────────────────────────────────────── */
+.page-enter {
+  animation: fadeUp 0.35s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
