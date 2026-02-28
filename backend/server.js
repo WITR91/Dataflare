@@ -21,8 +21,19 @@ connectDB();
 
 // ── Security middleware ─────────────────────────────────────────────────────
 app.use(helmet()); // Sets secure HTTP headers
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:3000',
+  /\.vercel\.app$/,   // any Vercel preview URL
+].filter(Boolean);
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true); // allow non-browser requests
+    const ok = allowedOrigins.some((o) =>
+      o instanceof RegExp ? o.test(origin) : o === origin
+    );
+    cb(ok ? null : new Error('CORS blocked'), ok);
+  },
   credentials: true,
 }));
 
