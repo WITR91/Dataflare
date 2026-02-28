@@ -43,7 +43,7 @@ export default function AdminTransactions() {
     }
   };
 
-  useEffect(() => { fetch(1); }, [typeFilter, statusFilter]);
+  useEffect(() => { fetch(1); }, [typeFilter, statusFilter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="min-h-screen bg-dark pb-10 max-w-lg mx-auto">

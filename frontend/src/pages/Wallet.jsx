@@ -39,7 +39,7 @@ export default function Wallet() {
           setSearchParams({});
         });
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleFund = async () => {
     const num = Number(amount);

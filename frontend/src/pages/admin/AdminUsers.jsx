@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MdArrowBack, MdSearch, MdAdd, MdRemove, MdBlock } from 'react-icons/md';
+import { MdArrowBack, MdSearch, MdAdd, MdBlock } from 'react-icons/md';
 import toast from 'react-hot-toast';
 import api from '../../services/api';
 import Loader from '../../components/Loader';
