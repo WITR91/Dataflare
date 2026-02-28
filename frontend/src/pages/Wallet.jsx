@@ -23,6 +23,7 @@ export default function Wallet() {
   const [verifying, setVerifying] = useState(false);
 
   // ── Auto-verify payment on return from Paystack ─────────────────────────
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const ref = searchParams.get('ref');
     if (ref) {

@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { MdContentCopy, MdCheck, MdShare, MdPeople, MdStar } from 'react-icons/md';
+import { MdContentCopy, MdCheck, MdPeople, MdStar } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthContext';

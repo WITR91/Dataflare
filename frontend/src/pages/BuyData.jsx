@@ -37,7 +37,7 @@ export default function BuyData() {
       fetchBundles(selectedNetwork);
       setStep(2);
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchBundles = async (network) => {
     setLoadingBundles(true);

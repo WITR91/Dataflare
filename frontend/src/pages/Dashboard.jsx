@@ -67,7 +67,7 @@ export default function Dashboard() {
       })
       .catch(() => toast.error('Could not load dashboard data.'))
       .finally(() => setLoadingTx(false));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleLogout = () => {
     logout();

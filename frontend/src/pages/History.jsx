@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { MdFilterList, MdRefresh } from 'react-icons/md';
+import { MdRefresh } from 'react-icons/md';
 import toast from 'react-hot-toast';
 import api from '../services/api';
 import BottomNav from '../components/BottomNav';
@@ -93,7 +93,7 @@ export default function History() {
     }
   };
 
-  useEffect(() => { fetchTx(1, filter); }, [filter]);
+  useEffect(() => { fetchTx(1, filter); }, [filter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const FILTERS = [
     { key: 'all',           label: 'All' },
